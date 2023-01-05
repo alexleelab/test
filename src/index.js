@@ -38,7 +38,8 @@ const splitLink = split(
 );
 
 const client = new ApolloClient({
-  link: splitLink
+  link: splitLink,
+  cache: new InMemoryCache(),
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
