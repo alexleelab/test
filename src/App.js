@@ -18,7 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={Mainpage} />
             <Route path="/signup" element={Signup}></Route>
-            <Route path="/login" element={<Login className="login" setToken={setToken}></Login>}></Route>
+            <Route path="/login" element={Login}></Route>
           </Routes>
         </Router>
       </div>
