@@ -16,7 +16,7 @@ const httpLink = new HttpLink({
 });
 
 const wsLink = new GraphQLWsLink(createClient({
-  url: 'ws://https://testpdfbackend.herokuapp.com/graphql',
+  url: 'ws://testpdfbackend.herokuapp.com/graphql',
 }));
 const splitLink = split(
   ({ query }) => {

@@ -15,7 +15,7 @@ import './App.css'
 export default function App() {
   const {token,setToken}=useToken('nothing')
   const {title,setTitle}=useTitle('nothing')
-  //console.log(token)
+  console.log(token,title)
   if(token=='nothing'|token=='"nothing"'){
     //console.log('out')
     return (
