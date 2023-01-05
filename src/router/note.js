@@ -13,7 +13,7 @@ export default function Home(props) {
   const token=props.token
   const title=props.title
   const setToken=props.setToken
-  const title=props.setToken
+  const setTitle=props.setToken
   const [pdfFileData, setPdfFileData] = useState("");
   const [uploadDisplay,setUploadDisaply]=useState(1);
   const {
