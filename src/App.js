@@ -1,25 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState,useEffect } from "react";
+import { useParams } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import {useToken,useTitle} from "./components/useToken";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const {token,setToken}=useToken('nothing')
+  const {title,setTitle}=useTitle('nothing')
+  if(token=='nothing'|token=='"nothing"'){
+    //console.log('out')
+    return (
+      <div className="App">
+        <Router>
+         // <NavBar setToken={setToken} setTitle={setTitle}/>
+          <Routes>
+            <Route path="/" element={Mainpage} />
+            <Route path="/signup" element={Signup}></Route>
+            <Route path="/login" element={<Login className="login" setToken={setToken}></Login>}></Route>
+          </Routes>
+        </Router>
+      </div>
+    )
+  }
+  else{
+    //console.log('in')
+    return (
+      <div className="App">
+        <Router>
+          <NavBar setToken={setToken} setTitle={setTitle}/>
+          <Routes>
+            <Route path="/homepage" element={Home} />
+            <Route path="/invited" element={Invited} />
+            <Route path="/invited/:noteid" element={Invited}/>} />
+            <Route path="/homepage/note/:noteid" element={Note} />
+          </Routes>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
