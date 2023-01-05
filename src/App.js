@@ -13,10 +13,9 @@ import {Login,Signup} from './router/account'
 import './App.css'
 
 export default function App() {
-  const {token,setToken}=useToken('nothing')
-  const {title,setTitle}=useTitle('nothing')
-  console.log(token,title)
-  if(token=='nothing'|token=='"nothing"'){
+  const {token,setToken}=usestate('')
+  const {title,setTitle}=usestate('')
+  if(token==''){
     //console.log('out')
     return (
       <div className="App">
